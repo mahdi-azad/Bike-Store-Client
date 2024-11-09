@@ -4,7 +4,7 @@ import { IoIosLogIn } from "react-icons/io";
 const Navbar = () => {
   return (
     <div>
-      <nav class="navbar fixed-top navbar-expand-lg bg-light">
+      <nav class="navbar sticky-top navbar-expand-lg bg-light">
         <div class="container-fluid">
           <img
             src="bike-logo.png"

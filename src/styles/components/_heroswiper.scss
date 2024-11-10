@@ -1,0 +1,77 @@
+#app {
+    height: 100%;
+  }
+  
+  html,
+  body {
+    position: relative;
+    height: 100%;
+  }
+  
+  body {
+    background: #eee;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: #000;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .swiper {
+    width: 100%;
+    height: 90vh;
+  }
+  
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .slide-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .slide-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .overlay-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    padding: 1rem 2rem;
+    background: rgba(0, 0, 0, 0.5); /* Transparent black overlay */
+    border-radius: 8px;
+    max-width: 80%;
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+  
+    &:hover {
+      background-color: #C9D2C5;
+      color: #333; /* Optional: Change text color for better readability on hover */
+    }
+  }
+  
+  .overlay-text h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.2;
+  }
+  
+  .overlay-text p {
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+  }
+

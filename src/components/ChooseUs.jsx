@@ -8,7 +8,6 @@ const ChooseUs = () => {
   return (
     <section className="advertise-section">
       <div className="container">
-        <h2 className="section-title">Why Choose Us?</h2>
         <div className="row">
           <div className="col-md-6 col-lg-3">
             <div className="feature-card">
@@ -29,8 +28,8 @@ const ChooseUs = () => {
                 &nbsp; Instant Booking
               </h3>
               <p>
-                Easily book repairs or service appointments with just a few
-                clicks.
+                Easily book repairs or service appointments instantly with just
+                a few clicks.
               </p>
             </div>
           </div>
@@ -40,7 +39,10 @@ const ChooseUs = () => {
                 <FaRegCalendarAlt />
                 &nbsp; Flexible Scheduling
               </h3>
-              <p>Customize scheduling to fit your timeline and convenience.</p>
+              <p>
+                Customize our flexible scheduling to fit into your timeline and
+                convenience.
+              </p>
             </div>
           </div>
           <div className="col-md-6 col-lg-3">
@@ -51,7 +53,7 @@ const ChooseUs = () => {
               </h3>
               <p>
                 Get around-the-clock customer support for any inquiries or
-                issues.
+                issues. Our team is available 24/7.
               </p>
             </div>
           </div>

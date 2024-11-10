@@ -1,5 +1,7 @@
 import React from "react";
 import { IoIosLogIn } from "react-icons/io";
+import ContactUs from "../pages/ContactUs";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -28,24 +30,43 @@ const Navbar = () => {
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">
+                {/* <a class="nav-link active rounded" aria-current="page" href="#">
                   Home
-                </a>
+                </a> */}
+                <Link to="/" class="nav-link active rounded">
+                  Home
+                </Link>
               </li>
+
               <li class="nav-item">
-                <a class="nav-link" href="#">
-                  Features
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link rounded" href="#">
                   Products
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
+                {/* <a class="nav-link rounded" href="#">
+                  Services
+                </a> */}
+                <Link to="/services" class="nav-link rounded">
+                  Services
+                </Link>
+              </li>
+
+              <li class="nav-item">
+                {/* <a class="nav-link rounded" href="#">
                   About Us
-                </a>
+                </a> */}
+                <Link to="/aboutus" class="nav-link rounded">
+                  About Us
+                </Link>
+              </li>
+              <li class="nav-item">
+                {/* <a class="nav-link rounded" href="/contact">
+                  Contact Us
+                </a> */}
+                <Link to="/contact" class="nav-link rounded">
+                  Contact Us
+                </Link>
               </li>
             </ul>
           </div>

@@ -5,19 +5,19 @@ const services = [
   {
     id: 1,
     title: "Bike Repairs",
-    description: "Expert repairs for all types of bikes.",
+    description: "Expert repairs for all different types of bikes.",
     image: "/bike-repair.jpg",
   },
   {
     id: 2,
     title: "Maintenance",
-    description: "Keep your bike in peak condition.",
+    description: "We make sure your bike in peak condition.",
     image: "/maintenance.jpg",
   },
   {
     id: 3,
     title: "Customization",
-    description: "Customize your bike to fit your style.",
+    description: "Customize your bike to fit your style your way",
     image: "/customization.jpg",
   },
   {
@@ -29,7 +29,7 @@ const services = [
   {
     id: 5,
     title: "Safety Checks",
-    description: "Ensure your bike is safe and secure.",
+    description: "Our experts ensure your bike is safe and secure.",
     image: "/safety-check.jpg",
   },
   {

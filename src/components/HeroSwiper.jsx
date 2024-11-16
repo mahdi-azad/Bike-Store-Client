@@ -32,6 +32,10 @@ export default function App() {
                 Explore a range of high-performance bikes designed to elevate
                 your ride.
               </p>
+
+              <a href="/products" className="custom-button">
+                Discover Bikes
+              </a>
             </div>
           </div>
         </SwiperSlide>
@@ -43,6 +47,9 @@ export default function App() {
               <p>
                 Professional repairs to keep you rolling smoothly all year long.
               </p>
+              <a href="/services" className="custom-button">
+                Explore Services
+              </a>
             </div>
           </div>
         </SwiperSlide>
@@ -55,6 +62,9 @@ export default function App() {
                 Don't miss our limited-time offers on top biking gear and
                 accessories.
               </p>
+              <a href="/products" className="custom-button">
+                Shop Now
+              </a>
             </div>
           </div>
         </SwiperSlide>

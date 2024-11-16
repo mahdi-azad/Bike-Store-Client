@@ -1,0 +1,83 @@
+$dark-green: #004d40;
+$medium-green: #26a69a;
+$light-green: #b2dfdb;
+$white: #ffffff;
+$light-gray: #f4f4f4;
+
+.products-page {
+    background: $light-green; /* Green background for the entire page */
+    min-height: 100vh; /* Ensure the background spans the entire page */
+    padding-top: 2rem;
+  
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+  
+    /* Intro Section */
+    .products-intro {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 3rem;
+  
+      .intro-text {
+        flex: 1; /* Take up equal space */
+        max-width: 600px;
+  
+        .products-title {
+          font-size: 2.5rem;
+          font-weight: bold;
+          color: $dark-green;
+          margin-bottom: 0.5rem;
+        }
+  
+        .products-subtitle {
+          font-size: 1.2rem;
+          color: $medium-green;
+          line-height: 1.6;
+        }
+      }
+  
+      .intro-animation {
+        flex: 1; /* Take up equal space */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+  
+        @media (max-width: 768px) {
+          margin-top: 1.5rem; /* Add spacing for stacked layout */
+        }
+      }
+    }
+  
+    .button-group {
+      button {
+        background: $medium-green; /* Use medium green for buttons */
+        color: $white;
+        font-weight: bold;
+        border: none;
+        transition: background 0.3s ease;
+  
+        &:hover {
+          background: $dark-green; /* Dark green on hover */
+        }
+  
+        &:focus {
+          outline: none;
+          box-shadow: 0 0 5px $dark-green;
+        }
+      }
+    }
+  
+    @media (max-width: 768px) {
+      .products-intro {
+        flex-direction: column; /* Stack text and animation vertically */
+        text-align: center; /* Center-align text on small screens */
+  
+        .intro-text {
+          max-width: 100%; /* Remove width constraint */
+        }
+      }
+    }
+  }

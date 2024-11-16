@@ -39,7 +39,7 @@ const Navbar = () => {
               </li>
 
               <li class="nav-item">
-                <a class="nav-link rounded" href="#">
+                <a class="nav-link rounded" href="/products">
                   Products
                 </a>
               </li>

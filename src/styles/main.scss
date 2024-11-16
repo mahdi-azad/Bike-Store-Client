@@ -3,17 +3,22 @@
 @use "./common/_default";
 
 @use "./components/navbar";
+@use "./components/navbarmod";
 @use "./components/footer";
 @use "./components/herosection";
 @use "./components/qualitybikes";
-@use "./components/features";
 @use "./components/contact";
 @use "./components/chooseus";
 @use "./components/services";
 @use "./components/aboutus";
 @use "./components/heroswiper";
+@use "./components/productstyles";
+@use "./components/productspage";
+@use "./components/featuredproducts";
+@use "./components/featuredservices";
+@use "./components/signin";
+@use "./components/register";
+@use "./components/feedback";
 
-// @import 'swiper/swiper-bundle.min.css';
-// @import 'swiper/modules/navigation/navigation.scss';
-// @import 'swiper/modules/pagination/pagination.scss';
+
 

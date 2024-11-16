@@ -1,0 +1,94 @@
+$dark-green: #004d40;
+$medium-green: #26a69a;
+$light-green: #b2dfdb;
+$white: #ffffff;
+$light-gray: #f4f4f4;
+
+.featured-services {
+    background-color: #C9D2C5; /* Light green background for the section */
+    padding: 2rem 0;
+  
+    .services-intro {
+      .services-title {
+        font-size: 3.5rem !important; /* Large title */
+        font-weight: bold !important;
+        color: $dark-green !important;
+      }
+  
+      .services-subtitle {
+        font-size: 2rem !important; /* Large subtitle */
+        color: $medium-green !important;
+        margin-bottom: 2rem !important;
+      }
+    }
+  
+    .service-card {
+      background: $medium-green !important; /* Green background for cards */
+      border-radius: 10px !important;
+      overflow: hidden !important;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+      &:hover {
+        transform: translateY(-5px) !important;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2) !important;
+        background: $medium-green !important; /* No color change on hover */
+      }
+  
+      &-img {
+        width: 100% !important;
+        height: 200px !important; /* Slightly larger height for images */
+        object-fit: cover !important;
+      }
+  
+      &-body {
+        padding: 2rem !important;
+  
+        &-title {
+          font-size: 2rem !important; /* Larger font for titles */
+          font-weight: bold !important;
+          color: $white !important; /* White text for better contrast */
+          margin-bottom: 1rem !important;
+        }
+  
+        &-description {
+          font-size: 1.6rem !important; /* Larger text for description */
+          color: $white !important; /* White text for readability */
+          margin-bottom: 1.5rem !important;
+        }
+  
+        &-price {
+          font-size: 1.8rem !important; /* Larger price text */
+          font-weight: bold !important;
+          color: $white !important;
+          margin-bottom: 1.5rem !important;
+        }
+      }
+  
+      .book-now-btn {
+        display: inline-block !important;
+        background: $dark-green !important; /* Dark green button */
+        color: $white !important;
+        font-size: 1.6rem !important; /* Larger button text */
+        font-weight: bold !important;
+        padding: 1rem 2.5rem !important;
+        border-radius: 30px !important; /* Rounded button */
+        border: none !important;
+        cursor: pointer !important;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+  
+        &:hover {
+          background-color: $light-green !important; /* Light green on hover */
+          color: $dark-green !important; /* Dark green text on hover */
+          transform: translateY(-3px) !important; /* Slight lift on hover */
+        }
+      }
+    }
+  
+    @media (max-width: 768px) {
+      .service-card {
+        &-img {
+          height: 180px; /* Adjust image height for smaller screens */
+        }
+      }
+    }
+  }

@@ -1,0 +1,111 @@
+$dark-green: #004d40;
+$medium-green: #26a69a;
+$light-green: #b2dfdb;
+$white: #ffffff;
+$light-gray: #f4f4f4;
+
+.navbar {
+    background-color: $light-gray; /* Navbar background color */
+    padding: 1rem 0;
+    // position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    height: 80px; /* Fixed height for the navbar */
+  
+    .navbar-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1400px; /* Increased max width for a wider navbar */
+      margin: 0 auto;
+      padding: 0 2rem; /* Extra padding for spacing */
+    }
+  
+    .navbar-logo {
+      display: flex;
+      align-items: center;
+  
+      .logo-img {
+        height: 50px; /* Increased size for a more prominent logo */
+        margin-right: 0.8rem;
+      }
+  
+      .logo-text {
+        font-size: 2rem;
+        font-weight: bold;
+        color: $dark-green;
+      }
+    }
+  
+    .navbar-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+  
+      .nav-link {
+        font-size: 1.3rem;
+        font-weight: 500;
+        color: $dark-green;
+        text-decoration: none;
+        padding: 0.5rem 1rem; /* Padding for hover area */
+        border-radius: 5px; /* Smooth edges */
+        transition: background-color 0.3s ease, color 0.3s ease;
+  
+        &:hover {
+          background-color: $medium-green; /* Highlighted hover background */
+          color: $white; /* Text turns white on hover */
+        }
+  
+        &.login-btn {
+          background-color: $medium-green;
+          color: $white;
+          padding: 0.6rem 1.8rem; /* Larger padding for emphasis */
+          border-radius: 20px;
+          transition: background-color 0.3s ease, transform 0.3s ease;
+  
+          &:hover {
+            background-color: $dark-green; /* Hover effect for login button */
+            transform: translateY(-2px); /* Slight lift on hover */
+          }
+        }
+      }
+  
+      @media (max-width: 768px) {
+        display: none;
+        flex-direction: column;
+        background-color: $light-green;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        left: 0;
+        padding: 1rem;
+        border-radius: 0 0 10px 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  
+        &.active {
+          display: flex;
+        }
+      }
+    }
+  
+    .burger-menu {
+      display: none;
+      cursor: pointer;
+      flex-direction: column;
+      gap: 0.4rem;
+  
+      .bar {
+        width: 30px; /* Increased size for better visibility */
+        height: 4px;
+        background-color: $dark-green;
+        border-radius: 2px;
+      }
+  
+      @media (max-width: 768px) {
+        display: flex;
+      }
+    }
+  }
+  

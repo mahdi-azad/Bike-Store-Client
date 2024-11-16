@@ -1,0 +1,102 @@
+$dark-green: #004d40;
+$medium-green: #26a69a;
+$light-green: #b2dfdb;
+$white: #ffffff;
+$light-gray: #f4f4f4;
+
+.featured-products {
+    background-color: #C9D2C5; /* Background color for the component */
+    padding: 2rem 0;
+  
+    .section-title {
+      font-size: 3.5rem !important; /* Larger title */
+      font-weight: bold !important;
+      color: $dark-green !important;
+      margin-bottom: 0.5rem !important;
+    }
+  
+    .section-subtitle {
+      font-size: 1.8rem !important; /* Slightly larger subtitle */
+      color: $medium-green !important;
+      margin-bottom: 2rem !important;
+    }
+  
+    .product-card-link {
+      text-decoration: none !important; /* Remove underline from links */
+      display: block !important; /* Ensure the entire card is clickable */
+      color: inherit !important; /* Inherit the card's text color */
+    }
+  
+    .product-card {
+      background: $light-green !important; /* Green background for the card */
+      border-radius: 10px !important;
+      overflow: hidden !important;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease !important;
+  
+      &:hover {
+        transform: translateY(-5px) !important;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2) !important;
+        background: $medium-green !important; /* Medium green on hover */
+      }
+  
+      &-img {
+        width: 100% !important;
+        height: 250px !important; /* Slightly larger height for images */
+        object-fit: cover !important;
+      }
+  
+      &-body {
+        padding: 1.5rem !important;
+  
+        &-title {
+          font-size: 1.8rem !important; /* Larger font for titles */
+          font-weight: bold !important;
+          color: $dark-green !important;
+          margin-bottom: 1rem !important;
+          transition: color 0.3s ease !important;
+  
+          &:hover {
+            color: $white !important; /* White on hover for contrast */
+          }
+        }
+  
+        &-price {
+          font-size: 1.6rem !important; /* Larger price text */
+          font-weight: bold !important;
+          color: $dark-green !important;
+          margin-bottom: 0.8rem !important;
+        }
+  
+        &-rating {
+          font-size: 1.5rem !important; /* Larger rating text */
+          font-weight: bold !important;
+          color: $dark-green !important;
+          transition: color 0.3s ease !important;
+  
+          &:hover {
+            color: $white !important; /* White on hover for contrast */
+          }
+        }
+      }
+    }
+  
+    .explore-btn {
+      display: inline-block !important;
+      background: $medium-green !important;
+      color: $white !important;
+      font-size: 1.5rem !important; /* Larger button text */
+      font-weight: bold !important;
+      padding: 1.2rem 3rem !important; /* Bigger padding for a prominent button */
+      border-radius: 40px !important; /* More rounded button */
+      text-decoration: none !important; /* Remove underline */
+      transition: all 0.3s ease !important;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1) !important;
+  
+      &:hover {
+        background: $dark-green !important; /* Dark green on hover */
+        color: $white !important;
+        transform: translateY(-3px) !important; /* Slight lift effect */
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2) !important; /* More pronounced shadow */
+      }
+    }
+  }

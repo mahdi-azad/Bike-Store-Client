@@ -1,6 +1,7 @@
 import React from "react";
 import Lottie from "lottie-react";
-import bike from "../../public/bike.json";
+// import bike from "../../public/bike.json";
+import bike from "../assets/bike.json";
 
 const slides = [
   {

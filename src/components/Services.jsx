@@ -1,86 +1,43 @@
 import React from "react";
-import { MdOutlineMiscellaneousServices } from "react-icons/md";
-
-const services = [
-  {
-    id: 1,
-    title: "Bike Repairs",
-    description: "Expert repairs for all different types of bikes.",
-    image: "/bike-repair.jpg",
-  },
-  {
-    id: 2,
-    title: "Maintenance",
-    description: "We make sure your bike in peak condition.",
-    image: "/maintenance.jpg",
-  },
-  {
-    id: 3,
-    title: "Customization",
-    description: "Customize your bike to fit your style your way",
-    image: "/customization.jpg",
-  },
-  {
-    id: 4,
-    title: "Diagnostics",
-    description: "Comprehensive diagnostics to ensure safety.",
-    image: "/diagnostics.jpg",
-  },
-  {
-    id: 5,
-    title: "Safety Checks",
-    description: "Our experts ensure your bike is safe and secure.",
-    image: "/safety-check.jpg",
-  },
-  {
-    id: 6,
-    title: "Tire Replacement",
-    description: "Quick and easy tire replacement services.",
-    image: "/tire-replacement.jpg",
-  },
-  {
-    id: 7,
-    title: "Brake Adjustments",
-    description: "Precise brake adjustments for safety.",
-    image: "/brake-adjustment.jpg",
-  },
-  {
-    id: 8,
-    title: "Gear Tuning",
-    description: "Fine-tuning for smooth gear changes.",
-    image: "/gear-tuning.jpg",
-  },
-];
+import servicesData from "../staticData/servicesData";
 
 const Services = () => {
   return (
-    <section className="featured-services">
-      <div className="container">
-        <h2 className="section-title">
-          <MdOutlineMiscellaneousServices />
-          &nbsp; Featured Services
-        </h2>
-        <h3 className="section-subtitle">
-          Providing reliable, high-quality services to keep you riding smoothly
-          and safely.
-        </h3>
-        <div className="row">
-          {services.map((service) => (
-            <div key={service.id} className="col-md-6 col-lg-3">
-              <div className="service-card">
+    <div className="services-page">
+      <div className="container py-5">
+        {/* Intro Section */}
+        <div className="services-intro text-center mb-5">
+          <h1 className="services-title">Our Services</h1>
+          <h4 className="services-subtitle">
+            Discover a wide range of services tailored to keep your bike in top
+            condition.
+          </h4>
+        </div>
+
+        {/* Services Cards */}
+        <div className="row gy-4">
+          {servicesData.map((service) => (
+            <div className="col-12 col-sm-6 col-lg-4" key={service.id}>
+              <div className="service-card shadow">
                 <img
                   src={service.image}
-                  alt={service.title}
-                  className="service-image"
+                  alt={service.name}
+                  className="service-card-img"
                 />
-                <h3 className="service-title">{service.title}</h3>
-                <p className="service-description">{service.description}</p>
+                <div className="service-card-body">
+                  <h3 className="service-card-title">{service.name}</h3>
+                  <h5 className="service-card-description">
+                    {service.description}
+                  </h5>
+                  <h5 className="service-card-price">{service.priceRange}</h5>
+                  <button className="book-now-btn">Book Now!</button>
+                </div>
               </div>
             </div>
           ))}
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

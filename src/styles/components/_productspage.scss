@@ -4,9 +4,14 @@ $light-green: #b2dfdb;
 $white: #ffffff;
 $light-gray: #f4f4f4;
 
+.product-card-link {
+  text-decoration: none; 
+  color: inherit; 
+}
+
 .products-page {
-    background: $light-green; /* Green background for the entire page */
-    min-height: 100vh; /* Ensure the background spans the entire page */
+    background: $light-green; 
+    min-height: 100vh; 
     padding-top: 2rem;
   
     .container {
@@ -79,5 +84,111 @@ $light-gray: #f4f4f4;
           max-width: 100%; /* Remove width constraint */
         }
       }
+    }
+  }
+
+
+
+/* General Section Styling */
+.bikes-container {
+    background: $light-green; 
+    padding-left: 2rem; 
+    padding-right: 2rem;
+  
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+  
+    .section-header {
+      text-align: center;
+      margin-bottom: 2rem;
+  
+      .section-title {
+        font-size: 2rem;
+        font-weight: bold;
+        color: $dark-green; /* Dark green for titles */
+        margin-bottom: 0.5rem;
+      }
+  
+      .section-subtitle {
+        font-size: 1rem;
+        color: $medium-green; /* Medium green for subtitles */
+      }
+    }
+  }
+  
+  /* Product Card Styling */
+  .product-card {
+    background: $white;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid $light-gray;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Subtle hover effect */
+      border-color: $medium-green; /* Green border on hover */
+    }
+  
+    &-img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover; /* Ensure the image scales beautifully */
+      background: $light-gray; /* Light gray background */
+    }
+  
+    &-body {
+      padding: 1rem;
+  
+      &-title {
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: $dark-green; /* Dark green for titles */
+        margin-bottom: 0.5rem;
+      }
+  
+      &-description {
+        font-size: 0.9rem;
+        color: $medium-green; /* Medium green for descriptions */
+        margin-bottom: 1rem;
+      }
+    }
+  
+    &-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1rem;
+  
+      &-price {
+        font-weight: bold;
+        color: $medium-green; /* Price in medium green */
+        font-size: 1.2rem; /* Increased size for better visibility */
+      }
+  
+      &-rating {
+        background: $dark-green; /* Dark green background for rating */
+        padding: 0.3rem 0.6rem;
+        border-radius: 4px;
+        font-weight: bold;
+        color: $white; /* White text for contrast */
+        font-size: 1.1rem; /* Increased size for better visibility */
+      }
+    }
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .product-card-img {
+      height: 200px; /* Adjust height for smaller screens */
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .bikes-container {
+      padding-left: 1rem;
+      padding-right: 1rem;
     }
   }

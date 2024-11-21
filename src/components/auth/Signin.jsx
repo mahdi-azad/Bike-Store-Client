@@ -1,8 +1,13 @@
 import React, { useState } from "react";
 import Lottie from "lottie-react";
 import signinAnimation from "../../assets/signin.json";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 const Signin = () => {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -46,18 +51,37 @@ const Signin = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (validateForm()) {
-      const isValidUser =
-        formData.email === "user@example.com" &&
-        formData.password === "Password123";
+    // if (validateForm()) {
+    //   const isValidUser =
+    //     formData.email === "user@example.com" &&
+    //     formData.password === "Password123";
 
-      if (!isValidUser) {
-        setGeneralError("Invalid login credentials");
-      } else {
-        alert("Sign-in successful!");
-      }
-    }
+    //   if (!isValidUser) {
+    //     setGeneralError("Invalid login credentials");
+    //   } else {
+    //     alert("Sign-in successful!");
+    //   }
+    const email = formData.email;
+    const password = formData.password;
+    const user = {
+      email,
+      password,
+    };
+    console.log(user);
+    axios
+      .post("http://localhost:5000/signin", user)
+      .then((response) => {
+        console.log("Response:", response.data.data);
+        localStorage.setItem("user", JSON.stringify(response.data.data));
+        toast.success("You Logged In Succesfully");
+        navigate("/");
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        toast.error("Use Sign In Failed");
+      });
   };
+  //Sanhill123!
 
   return (
     <div className="signin-page">

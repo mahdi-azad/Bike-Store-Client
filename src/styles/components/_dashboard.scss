@@ -1,0 +1,65 @@
+$dark-green: #004d40;
+$medium-green: #26a69a;
+$light-green: #b2dfdb;
+$white: #ffffff;
+$light-gray: #f4f4f4;
+
+
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, $light-green, $light-gray);
+  font-family: 'Arial', sans-serif;
+
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: $dark-green;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+
+    //this is for the line underneath the title
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background-color: $medium-green;
+      border-radius: 5px;
+    }
+  }
+
+  .nav-link {
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+    margin: 1rem 0;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: $white;
+    background-color: $medium-green;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: $dark-green;
+      transform: scale(1.05);
+      box-shadow: 0 8px 15px rgba(0, 77, 64, 0.3);
+    }
+
+    &:active {
+      background-color: $light-green;
+      color: $dark-green;
+    }
+  }
+}

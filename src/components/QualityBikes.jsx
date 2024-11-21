@@ -9,15 +9,20 @@ const QualityBikes = () => {
         </div>
         <div className="content">
           <h3 className="subtitle">Ride with Confidence</h3>
+          <br></br>
           <h2 className="title">Your destination for quality bikes</h2>
+          <br></br>
           <p className="text">
             <strong>Cykla</strong> thrives in <strong>Floral Park, US</strong>,
             as your go-to destination for top-notch mountain bikes, electric
             bikes, and road bikes. We offer an extensive selection of biking
-            accessories to enhance your ride. Our expert team is dedicated to
-            providing exceptional repair services to keep your bike in perfect
-            condition. Trust Cykla for all your cycling needs and experience the
-            joy of riding with confidence!
+            accessories to enhance your ride.{" "}
+          </p>{" "}
+          <br></br>
+          <p>
+            Our expert team is dedicated to providing exceptional repair
+            services to keep your bike in perfect condition. Trust Cykla for all
+            your cycling needs and experience the joy of riding with confidence!
           </p>
           <a href="/contact" className="link">
             Get in touch

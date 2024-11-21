@@ -1,7 +1,7 @@
 const bikeData = [
-    // Mountain Bikes
+    
     {
-      id: 1,
+      
       name: "Summit X-Trail 700",
       image: "/products/summit-xtrail-700.jpg",
       description: "A rugged mountain bike designed for extreme terrains and adventurous trails.",
@@ -11,7 +11,7 @@ const bikeData = [
       featured: true,
     },
     {
-      id: 2,
+      
       name: "RockRider Pro",
       image: "/products/rockrider-pro.jpg",
       description: "An all-terrain mountain bike with precision handling and durable frame.",
@@ -21,7 +21,7 @@ const bikeData = [
       featured: false,
     },
     {
-      id: 3,
+      
       name: "Alpine Breaker 500",
       image: "/products/alpine-breaker-500.jpg",
       description: "Perfect for steep climbs and thrilling descents, built with lightweight materials.",
@@ -31,9 +31,9 @@ const bikeData = [
       featured: false,
     },
   
-    // Electric Bikes
+   
     {
-      id: 4,
+      
       name: "Volt Runner",
       image: "/products/volt-runner.jpg",
       description: "A powerful electric bike with a long-lasting battery and sleek design.",
@@ -43,7 +43,7 @@ const bikeData = [
       featured: false,
     },
     {
-      id: 5,
+      
       name: "Eagle Glide Plus",
       image: "/products/eagle-glide-plus.jpg",
       description: "Smooth and efficient, this e-bike is perfect for urban commutes and light trails.",
@@ -53,7 +53,7 @@ const bikeData = [
       featured: true,
     },
     {
-      id: 6,
+      
       name: "ThunderFlash E-Bike",
       image: "/products/thunderflash-ebike.jpg",
       description: "Combining speed and performance, the ThunderFlash is ideal for e-bike enthusiasts.",
@@ -63,9 +63,9 @@ const bikeData = [
       featured: true,
     },
   
-    // City Bikes
+    
     {
-      id: 7,
+      
       name: "Metro Cruiser 300",
       image: "/products/metro-cruiser-300.jpg",
       description: "A comfortable and stylish bike perfect for city streets and leisure rides.",
@@ -75,7 +75,7 @@ const bikeData = [
       featured: false,
     },
     {
-      id: 8,
+      
       name: "UrbanFlex Commuter",
       image: "/products/urbanflex-commuter.jpg",
       description: "A sleek commuter bike with a lightweight frame and premium components.",
@@ -85,7 +85,7 @@ const bikeData = [
       featured: true,
     },
     {
-      id: 9,
+      
       name: "CitiFlow 200",
       image: "/products/citiflow-200.jpg",
       description: "A reliable bike designed for everyday city commutes and casual weekend rides.",
@@ -95,9 +95,9 @@ const bikeData = [
       featured: true,
     },
   
-    // Accessories
+    
     {
-      id: 10,
+      
       name: "TrailBlazer Helmet",
       image: "/products/trailblazer-helmet.jpg",
       description: "A lightweight, durable helmet with advanced ventilation and safety features.",
@@ -107,7 +107,7 @@ const bikeData = [
       featured: true,
     },
     {
-      id: 11,
+      
       name: "TurboAir Tire Pump",
       image: "/products/turboair-tire-pump.jpg",
       description: "A high-pressure tire pump with an ergonomic handle and precise gauge for quick inflation.",
@@ -117,7 +117,7 @@ const bikeData = [
       featured: false,
     },
     {
-      id: 12,
+      
       name: "ChimePro Bike Bell",
       image: "/products/chimepro-bike-bell.jpg",
       description: "A sleek and loud bike bell with a modern design, perfect for urban and trail biking.",

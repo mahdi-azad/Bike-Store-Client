@@ -9,12 +9,12 @@ const BikeAccessories = () => {
   return (
     <div className="bikes-container py-5">
       <div className="container">
-        <div className="section-header">
+        {/* <div className="section-header">
           <h2 className="section-title">Bike Accessories</h2>
           <p className="section-subtitle">
             Equip yourself with top-quality accessories for every ride.
           </p>
-        </div>
+        </div> */}
         <div className="row gy-4">
           {accessories.map((bike) => (
             <div className="col-12 col-sm-6 col-lg-4" key={bike.id}>

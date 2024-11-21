@@ -16,7 +16,6 @@ import Register from "./components/auth/Register";
 function App() {
   return (
     <>
-      {/* <Navbar /> */}
       <NavbarMod />
       <Routes>
         <Route path="/" element={<HomePage />}></Route>

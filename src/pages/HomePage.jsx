@@ -10,15 +10,27 @@ import HeroSwiper from "../components/HeroSwiper";
 import FeaturedProducts from "../components/FeaturedProducts";
 import FeaturedServices from "../components/FeaturedServices";
 import Feedback from "../components/Feedback";
-import NavbarMod from "../components/NavbarMod";
-import Footer from "../components/Footer";
+
+// const HomePage = () => {
+//   return (
+//     <div>
+//       <HeroSwiper />
+//       <HeroSection />
+//       <ChooseUs />
+//       <FeaturedProducts />
+//       <QualityBikes />
+//       <FeaturedServices />
+//       <Feedback />
+//     </div>
+//   );
+// };
 
 const HomePage = () => {
   return (
     <div>
       <HeroSwiper />
-      <HeroSection />
       <ChooseUs />
+      <HeroSection />
       <FeaturedProducts />
       <QualityBikes />
       <FeaturedServices />

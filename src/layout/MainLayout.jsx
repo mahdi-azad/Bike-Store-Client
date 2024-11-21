@@ -1,14 +1,16 @@
 import React from "react";
-import Services from "../components/Services";
+import { Outlet } from "react-router-dom";
 import NavbarMod from "../components/NavbarMod";
 import Footer from "../components/Footer";
 
-const ServicesPage = () => {
+const MainLayout = () => {
   return (
     <div>
-      <Services />
+      <NavbarMod />
+      <Outlet />
+      <Footer />
     </div>
   );
 };
 
-export default ServicesPage;
+export default MainLayout;

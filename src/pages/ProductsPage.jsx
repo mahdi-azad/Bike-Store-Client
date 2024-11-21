@@ -1,45 +1,35 @@
-import React, { useState } from "react";
-import MountainBikes from "../components/MountainBikes";
-import CityBikes from "../components/CityBikes";
-import ElectricBikes from "../components/ElectricBikes";
-import BikeAccessories from "../components/BikeAccessories";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import productAnimation from "../assets/product-anim.json";
 import Lottie from "lottie-react";
-import FeaturedProducts from "../components/FeaturedProducts";
+import axios from "axios";
 
 const ProductsPage = () => {
   const [category, setCategory] = useState("All");
+  const [products, setProducts] = useState([]);
 
-  // Map categories to their components
-  const components = {
-    Mountain: <MountainBikes />,
-    City: <CityBikes />,
-    Electric: <ElectricBikes />,
-    Accessories: <BikeAccessories />,
-    All: (
-      <>
-        <MountainBikes />
-        <CityBikes />
-        <ElectricBikes />
-        <BikeAccessories />
-      </>
-    ),
+  useEffect(() => {
+    fetchProducts();
+  }, []);
+
+  const fetchProducts = async () => {
+    try {
+      const response = await axios.get("http://localhost:5000/displayproduct");
+      setProducts(response.data.data);
+    } catch (error) {
+      console.error("Error fetching products:", error);
+    }
   };
 
-  // Lottie animation options
-  const defaultOptions = {
-    loop: true,
-    autoplay: true,
-    animationData: productAnimation,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
-    },
-  };
+  const filteredProducts =
+    category === "All"
+      ? products
+      : products.filter((product) => product.category === category);
 
   return (
     <div className="products-page">
       <div className="container py-4">
-        {/* Intro Section with Lottie Animation */}
+        {/* Intro Section */}
         <div className="products-intro d-flex align-items-center flex-wrap">
           <div className="intro-text">
             <h1 className="products-title">Explore Our Bikes & Accessories</h1>
@@ -50,7 +40,6 @@ const ProductsPage = () => {
             </p>
           </div>
           <div className="intro-animation">
-            {/* <Lottie options={defaultOptions} height={300} width={300} /> */}
             <Lottie
               animationData={productAnimation}
               loop={true}
@@ -60,7 +49,7 @@ const ProductsPage = () => {
           </div>
         </div>
 
-        {/* Buttons for selecting categories */}
+        {/* Category Buttons */}
         <div className="button-group mb-4 text-center">
           <button
             className="btn btn-success me-2"
@@ -94,8 +83,43 @@ const ProductsPage = () => {
           </button>
         </div>
 
-        {/* Render the selected category */}
-        <div>{components[category]}</div>
+        {/* Products Grid */}
+        <div className="bikes-container py-5">
+          <div className="container">
+            <div className="row gy-4">
+              {filteredProducts.map((product) => (
+                <div className="col-12 col-sm-6 col-lg-4" key={product._id}>
+                  <Link
+                    to={`/displayproduct/${product._id}`}
+                    className="product-card-link"
+                  >
+                    <div className="product-card shadow">
+                      <img
+                        src={product.image}
+                        alt={product.name}
+                        className="product-card-img"
+                      />
+                      <div className="product-card-body">
+                        <h5 className="product-card-title">{product.name}</h5>
+                        <p className="product-card-description">
+                          {product.description}
+                        </p>
+                        <div className="product-card-footer">
+                          <span className="product-card-price">
+                            ${product.price}
+                          </span>
+                          <span className="product-card-rating">
+                            {product.rating}⭐
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </Link>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

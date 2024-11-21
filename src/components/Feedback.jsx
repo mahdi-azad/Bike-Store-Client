@@ -1,33 +1,28 @@
 import React from "react";
+import services from "../staticData/reviewsData";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
+
+const responsive = {
+  superLargeDesktop: {
+    breakpoint: { max: 4000, min: 3000 },
+    items: 5,
+  },
+  desktop: {
+    breakpoint: { max: 3000, min: 1024 },
+    items: 3,
+  },
+  tablet: {
+    breakpoint: { max: 1024, min: 464 },
+    items: 2,
+  },
+  mobile: {
+    breakpoint: { max: 464, min: 0 },
+    items: 1,
+  },
+};
 
 const Feedback = () => {
-  const reviews = [
-    {
-      name: "Ahmed Khan",
-      role: "CLIENT",
-      feedback:
-        "The service and quality are fantastic! Highly recommend this store for all bike enthusiasts.",
-      stars: 5,
-      image: "/reviewers/ahmed-khan.jpg", // Replace with your MidJourney image
-    },
-    {
-      name: "Sophia Lee",
-      role: "CLIENT",
-      feedback:
-        "The staff was friendly, and the bike quality exceeded my expectations. Will be back for sure!",
-      stars: 5,
-      image: "/reviewers/sophia-lee.jpg", // Replace with your MidJourney image
-    },
-    {
-      name: "Ethan Wright",
-      role: "CLIENT",
-      feedback:
-        "Affordable, reliable, and stylish bikes. A great place for both beginners and professionals.",
-      stars: 5,
-      image: "/reviewers/ethan-wright.jpg", // Replace with your MidJourney image
-    },
-  ];
-
   return (
     <div className="feedback-section">
       <div className="container">
@@ -38,8 +33,17 @@ const Feedback = () => {
             services.
           </p>
         </div>
-        <div className="feedback-grid">
-          {reviews.map((review, index) => (
+        <Carousel
+          responsive={responsive}
+          autoPlaySpeed={1000}
+          infinite={true}
+          containerClass="carousel-container"
+          itemClass="carousel-item-padding-40-px"
+          removeArrowOnDeviceType={["tablet", "mobile"]}
+          keyBoardControl={true}
+          // showDots={true}
+        >
+          {services.map((review, index) => (
             <div className="feedback-card" key={index}>
               <div className="feedback-image">
                 <img src={review.image} alt={review.name} />
@@ -50,7 +54,8 @@ const Feedback = () => {
               <div className="feedback-stars">{"⭐".repeat(review.stars)}</div>
             </div>
           ))}
-        </div>
+        </Carousel>
+        ;
       </div>
     </div>
   );

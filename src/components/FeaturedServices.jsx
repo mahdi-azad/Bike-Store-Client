@@ -1,10 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import servicesData from "../staticData/servicesData";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 const FeaturedServices = () => {
   // Filter for featured services
-  const featuredServices = servicesData.filter((service) => service.featured);
+  // const featuredServices = servicesData.filter((service) => service.featured);
+
+  const [services, setServices] = useState([]);
+
+  // Filter for featured products
+
+  // const featuredProducts = products.filter((product) => product.featured);
+  const featuredServices = services.filter((service) => service.featured);
+  useEffect(() => {
+    fetchServices();
+  }, []);
+
+  const fetchServices = async () => {
+    try {
+      const response = await axios.get("http://localhost:5000/display-service");
+      setServices(response.data.data);
+    } catch (error) {
+      console.error("Error fetching services:", error);
+    }
+  };
 
   return (
     <div className="featured-services" style={{ backgroundColor: "#C9D2C5" }}>

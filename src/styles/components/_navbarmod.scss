@@ -5,107 +5,188 @@ $white: #ffffff;
 $light-gray: #f4f4f4;
 
 .navbar {
-    background-color: $light-gray; /* Navbar background color */
-    padding: 1rem 0;
-    // position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    height: 80px; /* Fixed height for the navbar */
-  
-    .navbar-container {
-      display: flex;
+  background-color: $light-gray;
+  padding: 1rem 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+  .navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+
+    @media (max-width: 768px) {
+      flex-direction: column; // Stack for smaller screens
       align-items: center;
-      justify-content: space-between;
-      max-width: 1400px; /* Increased max width for a wider navbar */
-      margin: 0 auto;
-      padding: 0 2rem; /* Extra padding for spacing */
     }
-  
-    .navbar-logo {
-      display: flex;
-      align-items: center;
-  
-      .logo-img {
-        height: 50px; /* Increased size for a more prominent logo */
-        margin-right: 0.8rem;
-      }
-  
-      .logo-text {
-        font-size: 2rem;
-        font-weight: bold;
-        color: $dark-green;
-      }
+  }
+
+  .navbar-logo {
+    display: flex;
+    align-items: center;
+
+    .logo-img {
+      height: 50px;
+      margin-right: 0.8rem;
     }
-  
-    .navbar-links {
-      display: flex;
-      align-items: center;
-      gap: 2rem;
-  
-      .nav-link {
-        font-size: 1.3rem;
-        font-weight: 500;
-        color: $dark-green;
-        text-decoration: none;
-        padding: 0.5rem 1rem; /* Padding for hover area */
-        border-radius: 5px; /* Smooth edges */
-        transition: background-color 0.3s ease, color 0.3s ease;
-  
-        &:hover {
-          background-color: $medium-green; /* Highlighted hover background */
-          color: $white; /* Text turns white on hover */
-        }
-  
-        &.login-btn {
-          background-color: $medium-green;
-          color: $white;
-          padding: 0.6rem 1.8rem; /* Larger padding for emphasis */
-          border-radius: 20px;
-          transition: background-color 0.3s ease, transform 0.3s ease;
-  
-          &:hover {
-            background-color: $dark-green; /* Hover effect for login button */
-            transform: translateY(-2px); /* Slight lift on hover */
-          }
-        }
-      }
-  
+
+    .logo-text {
+      font-size: 2rem;
+      font-weight: bold;
+      color: $dark-green;
+
       @media (max-width: 768px) {
-        display: none;
-        flex-direction: column;
-        background-color: $light-green;
-        position: absolute;
-        top: 100%;
-        right: 0;
-        left: 0;
-        padding: 1rem;
-        border-radius: 0 0 10px 10px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  
-        &.active {
-          display: flex;
-        }
-      }
-    }
-  
-    .burger-menu {
-      display: none;
-      cursor: pointer;
-      flex-direction: column;
-      gap: 0.4rem;
-  
-      .bar {
-        width: 30px; /* Increased size for better visibility */
-        height: 4px;
-        background-color: $dark-green;
-        border-radius: 2px;
-      }
-  
-      @media (max-width: 768px) {
-        display: flex;
+        margin-bottom: 1rem; // Space below logo on smaller screens
       }
     }
   }
-  
+
+  .navbar-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+
+    .nav-link {
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: $dark-green;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+
+      &:hover {
+        background-color: $medium-green;
+        color: $white;
+      }
+
+      &.login-btn {
+        background-color: $medium-green;
+        color: $white;
+        padding: 0.6rem 1.8rem;
+        border-radius: 20px;
+
+        &:hover {
+          background-color: $dark-green;
+        }
+      }
+    }
+
+    @media (max-width: 768px) {
+      display: none; // Hide links by default on mobile
+      flex-direction: column; // Stack links vertically
+      align-items: center;
+      background-color: $medium-green;
+      position: absolute;
+      top: 70px; // Adjust below navbar height
+      right: 0;
+      left: 0;
+      padding: 1.5rem 0;
+      z-index: 999;
+      border-radius: 0 0 10px 10px;
+
+      &.active {
+        display: flex; // Show links when the burger menu is active
+      }
+
+      .nav-link {
+        color: $white;
+        width: 100%; // Full-width links for easy clicking
+        text-align: center;
+        padding: 0.8rem 0;
+        border-bottom: 1px solid $light-green;
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        &:hover {
+          background-color: $dark-green;
+        }
+      }
+    }
+  }
+
+  .burger-menu {
+    display: none; // Hidden by default
+    cursor: pointer;
+    flex-direction: column;
+    gap: 0.4rem;
+    padding: 0.5rem;
+    border-radius: 5px;
+    background-color: $light-green;
+
+    .bar {
+      width: 25px;
+      height: 3px;
+      background-color: $dark-green;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    &:hover {
+      background-color: $medium-green;
+    }
+
+    @media (max-width: 768px) {
+      display: flex; // Show burger menu on smaller screens
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+    }
+
+    &.active .bar:nth-child(1) {
+      background-color: white;
+    }
+
+    &.active .bar:nth-child(2) {
+      background-color: white;
+    }
+
+    &.active .bar:nth-child(3) {
+      background-color: white;
+    }
+  }
+
+  .user-profile {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-left: auto; // Push to the far right
+
+    .user-avatar {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid $medium-green;
+    }
+
+    .user-name {
+      font-size: 1rem;
+      font-weight: 500;
+      color: $dark-green;
+      white-space: nowrap;
+    }
+
+    .logout-btn {
+      background-color: transparent;
+      color: $dark-green;
+      border: none;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      padding: 0.2rem 0.5rem;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: $medium-green;
+      }
+    }
+  }
+}

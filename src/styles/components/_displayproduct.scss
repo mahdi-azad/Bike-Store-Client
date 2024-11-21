@@ -1,0 +1,112 @@
+$dark-green: #004d40;
+$medium-green: #26a69a;
+$light-green: #b2dfdb;
+$white: #ffffff;
+$light-gray: #f4f4f4;
+
+.display-products {
+  padding: 2rem;
+  background-color: #f9f9f9;
+
+  h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+
+    th,
+    td {
+      padding: 0.8rem;
+      text-align: center;
+      border: 1px solid #ddd;
+      font-size: 1rem;
+    }
+
+    th {
+      background-color: #004d40;
+      color: white;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    tr:hover {
+      background-color: #e0e0e0;
+    }
+
+    input,
+    select {
+      width: 100%;
+      padding: 0.5rem;
+      font-size: 0.9rem;
+    }
+
+    button {
+      margin: 0.2rem;
+      padding: 0.5rem 1rem;
+      background-color: #26a69a;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 0.9rem;
+
+      &:hover {
+        background-color: #004d40;
+      }
+    }
+  }
+
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    table {
+      display: block;
+      overflow-x: auto;
+      white-space: nowrap;
+
+      th,
+      td {
+        text-align: left;
+        font-size: 0.9rem;
+      }
+    }
+
+    h2 {
+      font-size: 1.5rem;
+    }
+
+    button {
+      font-size: 0.8rem;
+      padding: 0.4rem 0.8rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    h2 {
+      font-size: 1.2rem;
+    }
+
+    th,
+    td {
+      padding: 0.6rem;
+      font-size: 0.8rem;
+    }
+
+    button {
+      font-size: 0.7rem;
+      padding: 0.3rem 0.6rem;
+    }
+
+    input,
+    select {
+      padding: 0.4rem;
+      font-size: 0.8rem;
+    }
+  }
+}

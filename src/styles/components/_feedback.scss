@@ -9,7 +9,7 @@ $light-gray: #f4f4f4;
     padding: 4rem 2rem;
   
     .container {
-      max-width: 1200px; /* Restrict content width */
+      max-width: 1300px; /* Restrict content width */
       margin: 0 auto; /* Center the container */
       padding: 0 1rem; /* Add slight padding for smaller screens */
       text-align: center;
@@ -53,11 +53,13 @@ $light-gray: #f4f4f4;
     }
   
     .feedback-card {
+      margin: 5px;
       background-color: $light-green; /* Card background */
       border-radius: 10px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
       padding: 2rem;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      min-height: 43vh;
   
       &:hover {
         transform: translateY(-10px);
@@ -93,7 +95,7 @@ $light-gray: #f4f4f4;
       }
   
       .feedback-text {
-        font-size: 1rem;
+        font-size: 1.3rem;
         color: $dark-green;
         margin-bottom: 1rem;
       }

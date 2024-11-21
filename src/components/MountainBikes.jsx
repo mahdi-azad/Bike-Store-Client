@@ -7,13 +7,6 @@ const MountainBikes = () => {
   return (
     <div className="bikes-container py-5">
       <div className="container">
-        <div className="section-header">
-          <h2 className="section-title">Mountain Bikes</h2>
-          <p className="section-subtitle">
-            Built for adventure, durability, and performance. Conquer every
-            trail.
-          </p>
-        </div>
         <div className="row gy-4">
           {mountainBikes.map((bike) => (
             <div className="col-12 col-sm-6 col-lg-4" key={bike.id}>

@@ -20,6 +20,10 @@ import SingleProduct from "./pages/SingleProduct.jsx";
 import DisplayService from "./components/admin/DisplayService.jsx";
 import Dashboard from "./components/admin/Dashboard.jsx";
 import UpdateProduct from "./components/admin/UpdateProduct.jsx";
+import SingleService from "./pages/SingleService.jsx";
+import CreateService from "./components/admin/CreateService.jsx";
+import UpdateService from "./components/admin/UpdateService.jsx";
+import CartPage from "./pages/CartPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -28,23 +32,23 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <HomePage />, // Render ProductsPage only for "/products"
+        element: <HomePage />,
       },
       {
         path: "/products",
-        element: <ProductsPage />, // Render ProductsPage only for "/products"
+        element: <ProductsPage />,
       },
       {
         path: "/services",
-        element: <ServicesPage />, // Render ServicesPage only for "/services"
+        element: <ServicesPage />,
       },
       {
         path: "/aboutus",
-        element: <AboutUs />, // Render AboutUs only for "/aboutus"
+        element: <AboutUs />,
       },
       {
         path: "/contact",
-        element: <ContactUs />, // Render ContactUs only for "/contact"
+        element: <ContactUs />,
       },
       {
         path: "/createproduct",
@@ -63,12 +67,28 @@ const router = createBrowserRouter([
         element: <DisplayService />, //
       },
       {
+        path: "/create-service",
+        element: <CreateService />, //
+      },
+      {
+        path: "/display-service/:id",
+        element: <SingleService />, //
+      },
+      {
         path: "/dashboard",
         element: <Dashboard />, //
       },
       {
         path: "/dashboard/update-product/:id",
         element: <UpdateProduct />,
+      },
+      {
+        path: "/dashboard/update-service/:id",
+        element: <UpdateService />,
+      },
+      {
+        path: "/cart",
+        element: <CartPage />,
       },
     ],
     // Render HomePage only for "/"

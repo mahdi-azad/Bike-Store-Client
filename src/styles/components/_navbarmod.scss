@@ -5,11 +5,17 @@ $white: #ffffff;
 $light-gray: #f4f4f4;
 
 .navbar {
-  background-color: $light-gray;
+  // background-color: $light-gray;
+  background: linear-gradient(360deg, $light-gray, $light-green);
   padding: 1rem 0;
   width: 100%;
   z-index: 1000;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  
+  .active {
+    background-color: #26a69a;
+    color: white !important;
+  }
 
   .navbar-container {
     display: flex;
@@ -26,12 +32,13 @@ $light-gray: #f4f4f4;
   }
 
   .navbar-logo {
-    display: flex;
+    display: flex-column;
     align-items: center;
+    text-align: center;
+    margin-right: 100px;
 
     .logo-img {
       height: 50px;
-      margin-right: 0.8rem;
     }
 
     .logo-text {
@@ -44,7 +51,9 @@ $light-gray: #f4f4f4;
       }
     }
   }
-
+  .cart-icon {
+    margin-top: 0px;
+  }
   .navbar-links {
     display: flex;
     align-items: center;
@@ -90,7 +99,9 @@ $light-gray: #f4f4f4;
       border-radius: 0 0 10px 10px;
 
       &.active {
-        display: flex; // Show links when the burger menu is active
+        display: flex;
+        background-color: #26a69a;
+        color: white !important; // Show links when the burger menu is active
       }
 
       .nav-link {
@@ -168,10 +179,13 @@ $light-gray: #f4f4f4;
     }
 
     .user-name {
-      font-size: 1rem;
+      text-decoration: none;
+      font-size: 1.3rem;
+      margin-left: 5px;
       font-weight: 500;
       color: $dark-green;
       white-space: nowrap;
+      text-decoration: none !important;
     }
 
     .logout-btn {

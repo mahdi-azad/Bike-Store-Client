@@ -6,75 +6,74 @@ import createProductAnimation from "../../assets/create-product.json";
 import toast from "react-hot-toast";
 import { useNavigate, useParams } from "react-router-dom";
 
-const UpdateProduct = () => {
-  const [product, setProduct] = useState();
+const UpdateService = () => {
+  const [service, setService] = useState();
   const { id } = useParams();
   const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchProduct = async () => {
+    const fetchService = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5000/displayproduct/${id}`
+          `http://localhost:5000/display-service/${id}`
         );
-        setProduct(response.data.data);
+        setService(response.data.data);
       } catch (error) {
-        console.error("Error fetching product:", error);
+        console.error("Error fetching service:", error);
       }
     };
-    fetchProduct();
+    fetchService();
   }, [id]);
 
-  if (!product) {
+  if (!service) {
     return <p>Loading...</p>;
   }
-  const { _id, name, category, price, image, description, rating, featured } =
-    product;
+  const { _id, name, price, image, description, rating, featured } = service;
 
-  // const handleSubmit = (values, { resetForm }) => {
-  //   // Process the form data (e.g., send to API)
-  //   console.log("Product Updated:", values);
-  //   axios
-  //     .put(`http://localhost:5000/displayproduct/${_id}`, values)
-  //     .then((response) => {
-  //       console.log("Response:", response.data);
-  //       if (response.data.data.modifiedCount === 1) {
-  //         toast.success("Product Updated Successfully");
-  //       }
-  //     })
-  //     .catch((error) => {
-  //       console.error("Error:", error);
-  //       toast.error("Something Went Wrong");
-  //     });
-  //   // Reset the form
-  //   resetForm();
-  //   navigate("/dashboard");
-  // };
+  //   const handleSubmit = (values, { resetForm }) => {
+  //     // Process the form data (e.g., send to API)
+  //     console.log("Service Updated:", values);
+  //     axios
+  //       .put(`http://localhost:5000/display-service/${_id}`, values)
+  //       .then((response) => {
+  //         console.log("Response:", response.data);
+  //         if (response.data.data.modifiedCount === 1) {
+  //           toast.success("Service Updated Successfully");
+  //         }
+  //       })
+  //       .catch((error) => {
+  //         console.error("Error:", error);
+  //         toast.error("Something Went Wrong");
+  //       });
+  //     // Reset the form
+  //     resetForm();
+  //     navigate("/dashboard");
+  //   };
 
-  // const initialValues = {
-  //   name: name,
-  //   image: image,
-  //   description: description,
-  //   price: price,
-  //   rating: rating,
-  //   category: category,
-  //   featured: featured,
-  // };
+  //   const initialValues = {
+  //     name: name,
+  //     image: image,
+  //     description: description,
+  //     price: price,
+  //     rating: rating,
+  //     featured: featured,
+  //   };
+
   const handleSubmit = (values, { resetForm }) => {
     // Convert "true"/"false" string values to boolean
     const formattedValues = {
       ...values,
-      featured: values.featured === "true", // Convert string to boolean, if values.featured is true equal to "true" then it will be boolean true, else it will be false
+      featured: values.featured === "true", // Convert string to boolean
     };
 
     // console.log("Service Updated:", formattedValues);
 
     axios
-      .put(`http://localhost:5000/displayproduct/${_id}`, formattedValues)
+      .put(`http://localhost:5000/display-service/${_id}`, formattedValues)
       .then((response) => {
         console.log("Response:", response.data);
         if (response.data.data.modifiedCount === 1) {
-          toast.success("Product Updated Successfully");
+          toast.success("Service Updated Successfully");
         }
       })
       .catch((error) => {
@@ -90,10 +89,10 @@ const UpdateProduct = () => {
     image: image,
     description: description,
     price: price,
-    category: category,
     rating: rating,
-    featured: featured ? "true" : "false", // Converts boolean to string for the form
+    featured: featured ? "true" : "false", // Convert boolean to string for the form
   };
+
   return (
     <div className="create-product-page">
       <div className="create-product-container">
@@ -108,7 +107,7 @@ const UpdateProduct = () => {
 
         {/* Right Section with Form */}
         <div className="create-product-right">
-          <h2 className="create-product-title">Edit Product</h2>
+          <h2 className="create-product-title">Edit Service</h2>
           <Formik
             initialValues={initialValues}
             enableReinitialize
@@ -117,7 +116,7 @@ const UpdateProduct = () => {
             <Form className="create-product-form">
               {/* Name */}
               <div className="form-group">
-                <label htmlFor="name">Product Name</label>
+                <label htmlFor="name">Service Name</label>
                 <Field type="text" id="name" name="name" />
                 <ErrorMessage
                   name="name"
@@ -175,23 +174,6 @@ const UpdateProduct = () => {
                 />
               </div>
 
-              {/* Category */}
-              <div className="form-group">
-                <label htmlFor="category">Category</label>
-                <Field as="select" id="category" name="category">
-                  <option value="" label="Select a category" />
-                  <option value="Mountain" label="Mountain" />
-                  <option value="Electric" label="Electric" />
-                  <option value="City" label="City" />
-                  <option value="Accessories" label="Accessories" />
-                </Field>
-                <ErrorMessage
-                  name="category"
-                  component="div"
-                  className="error-text"
-                />
-              </div>
-
               {/* Featured */}
               <div className="form-group">
                 <label>Featured</label>
@@ -214,7 +196,7 @@ const UpdateProduct = () => {
 
               {/* Submit Button */}
               <button type="submit" className="submit-btn">
-                Update Product
+                Update Service
               </button>
             </Form>
           </Formik>
@@ -224,4 +206,4 @@ const UpdateProduct = () => {
   );
 };
 
-export default UpdateProduct;
+export default UpdateService;

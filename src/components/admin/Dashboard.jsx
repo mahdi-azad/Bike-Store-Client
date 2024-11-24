@@ -11,6 +11,9 @@ const Dashboard = () => {
       <Link to="/displayproduct" className="nav-link">
         Product Display
       </Link>
+      <Link to="/create-service" className="nav-link">
+        Service Creation
+      </Link>
       <Link to="/display-service" className="nav-link">
         Service Display
       </Link>

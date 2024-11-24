@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
+import { FaShoppingCart } from "react-icons/fa";
 
 const NavbarMod = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [user, setUser] = useState();
   const navigate = useNavigate();
+
   useEffect(() => {
     const userData = JSON.parse(localStorage.getItem("user"));
     setUser(userData);
@@ -13,8 +15,7 @@ const NavbarMod = () => {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
-  //sarah@email.com
-  //SarahKhan123!
+
   const closeMenu = () => {
     setIsMenuOpen(false); // Close the menu when a link is clicked
   };
@@ -36,88 +37,60 @@ const NavbarMod = () => {
 
         {/* Navbar Links */}
         <div className={`navbar-links ${isMenuOpen ? "active" : ""}`}>
-          <NavLink
-            to="/"
-            className={({ isActive }) =>
-              isActive ? "nav-link active" : "nav-link"
-            }
-            onClick={closeMenu}
-          >
+          <NavLink to="/" className="nav-link" onClick={closeMenu}>
             Home
           </NavLink>
-          <NavLink
-            to="/products"
-            className={({ isActive }) =>
-              isActive ? "nav-link active" : "nav-link"
-            }
-            onClick={closeMenu}
-          >
+          <NavLink to="/products" className="nav-link" onClick={closeMenu}>
             Products
           </NavLink>
-          <NavLink
-            to="/services"
-            className={({ isActive }) =>
-              isActive ? "nav-link active" : "nav-link"
-            }
-            onClick={closeMenu}
-          >
+          <NavLink to="/services" className="nav-link" onClick={closeMenu}>
             Services
           </NavLink>
-          <NavLink
-            to="/aboutus"
-            className={({ isActive }) =>
-              isActive ? "nav-link active" : "nav-link"
-            }
-            onClick={closeMenu}
-          >
+          <NavLink to="/aboutus" className="nav-link" onClick={closeMenu}>
             About Us
           </NavLink>
-          <NavLink
-            to="/contact"
-            className={({ isActive }) =>
-              isActive ? "nav-link active" : "nav-link"
-            }
-            onClick={closeMenu}
-          >
+          <NavLink to="/contact" className="nav-link" onClick={closeMenu}>
             Contact Us
           </NavLink>
-          {user && user.imageUrl ? (
-            <div className="user-profile">
-              <img
-                src={user.imageUrl}
-                alt="User Avatar"
-                className="user-avatar"
-              />
-              <span className="user-name">{user.fullName}</span>
-              {user && user.role === "admin" ? (
-                <NavLink to="dashboard">
-                  <button className="btn logout-btn">Admin Dashboard</button>
-                </NavLink>
-              ) : (
-                <div></div>
-              )}
-              <button className="btn logout-btn" onClick={handleLogout}>
-                Logout
-              </button>
-            </div>
-          ) : (
-            <NavLink
-              to="/signin"
-              className={({ isActive }) =>
-                isActive ? "nav-link login-btn active" : "nav-link login-btn"
-              }
-              onClick={closeMenu}
-            >
-              Log In
+          {user && user.role === "admin" && (
+            <NavLink to="/dashboard" className="nav-link" onClick={closeMenu}>
+              Admin Dashboard
+            </NavLink>
+          )}
+          {user && user.role === "user" && (
+            <NavLink to="/cart" className="nav-link" onClick={closeMenu}>
+              <FaShoppingCart /> Cart
             </NavLink>
           )}
         </div>
 
+        {/* User Profile Section */}
+        {user && user.imageUrl ? (
+          <div className="user-profile flex-column">
+            <img
+              src={user.imageUrl}
+              alt="User Avatar"
+              className="user-avatar"
+            />
+            <span className="user-name">{user.fullName}</span>
+            <button className="btn logout-btn" onClick={handleLogout}>
+              Logout
+            </button>
+          </div>
+        ) : (
+          <div className="navbar-links">
+            <NavLink
+              to="/signin"
+              className="nav-link login-btn"
+              onClick={closeMenu}
+            >
+              Log In
+            </NavLink>
+          </div>
+        )}
+
         {/* Burger Menu */}
-        <div
-          className={`burger-menu ${isMenuOpen ? "active" : ""}`}
-          onClick={toggleMenu}
-        >
+        <div className="burger-menu" onClick={toggleMenu}>
           <div className="bar"></div>
           <div className="bar"></div>
           <div className="bar"></div>

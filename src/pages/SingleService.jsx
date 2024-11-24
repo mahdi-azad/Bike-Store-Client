@@ -1,54 +1,53 @@
 import axios from "axios";
-import { Formik } from "formik";
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import Guarantee from "../components/Guarantee";
 import toast from "react-hot-toast";
-import { Form, useParams } from "react-router-dom";
 
-const SingleProduct = () => {
-  const [product, setProduct] = useState();
+const SingleService = () => {
+  const [service, setService] = useState();
   let { id } = useParams();
 
   useEffect(() => {
-    const fetchProduct = async () => {
+    const fetchService = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5000/displayproduct/${id}`
+          `http://localhost:5000/display-service/${id}`
         );
-        setProduct(response.data.data);
+        setService(response.data.data);
       } catch (error) {
-        console.error("Error fetching product:", error);
+        console.error("Error fetching service:", error);
       }
     };
-    fetchProduct();
+    fetchService();
   }, [id]);
 
-  if (!product) {
+  if (!service) {
     return <p>Loading...</p>;
   }
 
-  const { name, category, price, image, description, rating } = product;
+  const { name, image, description, price, rating } = service;
 
   const handleAddToCart = async () => {
     try {
       const user = JSON.parse(localStorage.getItem("user"));
       if (!user || !user.email) {
-        return alert("Please log in to add items to your cart.");
+        return toast.error("Please log in to add items to your cart.");
       }
 
       const cartItem = {
-        productId: product._id, // Product ID from URL params
-        name: product.name,
-        image: product.image,
-        description: product.description,
-        price: product.price,
-        rating: product.rating,
-        category: product.category,
-        featured: product.featured || false,
+        productId: service._id, // Product ID from URL params
+        name: service.name,
+        image: service.image,
+        description: service.description,
+        price: service.price,
+        rating: service.rating,
+        featured: service.featured || false,
         email: user.email, // User email from localStorage
       };
 
       const response = await axios.post(
-        "http://localhost:5000/cart-products",
+        "http://localhost:5000/cart-services",
         cartItem
       );
 
@@ -72,7 +71,6 @@ const SingleProduct = () => {
           </div>
           <div className="product-details">
             <h1 className="product-title">{name}</h1>
-            <p className="product-category">Category: {category}</p>
             <p className="product-description">{description}</p>
             <p className="product-price">Price: ${price}</p>
             <p className="product-rating">Rating: {rating}⭐</p>
@@ -82,8 +80,13 @@ const SingleProduct = () => {
           </div>
         </div>
       </div>
+
+      {/* Services Guarantee */}
+      <div className="container">
+        <Guarantee />
+      </div>
     </div>
   );
 };
 
-export default SingleProduct;
+export default SingleService;

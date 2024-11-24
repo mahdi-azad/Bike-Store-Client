@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const DisplayService = () => {
   const [services, setService] = useState([]);
@@ -66,6 +67,9 @@ const DisplayService = () => {
               <td>{service.rating.toFixed(1)} / 5</td>
               <td>{service.featured ? "Yes" : "No"}</td>
               <td>
+                <Link to={`/dashboard/update-service/${service._id}`}>
+                  <button>Edit</button>
+                </Link>
                 <button onClick={() => handleDelete(service._id)}>
                   Delete
                 </button>

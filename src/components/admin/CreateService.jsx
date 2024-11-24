@@ -5,7 +5,7 @@ import Lottie from "lottie-react";
 import createProductAnimation from "../../assets/create-product.json";
 import toast from "react-hot-toast";
 import axios from "axios";
-const CreateProduct = () => {
+const CreateService = () => {
   const initialValues = {
     name: "",
     image:
@@ -13,7 +13,6 @@ const CreateProduct = () => {
     description: "",
     price: "",
     rating: "",
-    category: "",
     featured: false,
   };
 
@@ -34,12 +33,7 @@ const CreateProduct = () => {
       .test("is-decimal", "Rating must have up to one decimal place", (value) =>
         /^\d+(\.\d{1})?$/.test(value)
       ),
-    category: Yup.string()
-      .oneOf(
-        ["Mountain", "Electric", "City", "Accessories"],
-        "Invalid category"
-      )
-      .required("Category is required"),
+
     featured: Yup.boolean().required(
       "Please select if the product is featured"
     ),
@@ -47,13 +41,13 @@ const CreateProduct = () => {
 
   const handleSubmit = (values, { resetForm }) => {
     // Process the form data (e.g., send to API)
-    console.log("Product Created:", values);
+    console.log("Service Created:", values);
     axios
-      .post("http://localhost:5000/createproduct", values)
+      .post("http://localhost:5000/create-service", values)
       .then((response) => {
         console.log("Response:", response.data);
         if (response.data.data.acknowledged) {
-          toast.success("Product Created Successfully");
+          toast.success("Service Created Successfully");
         }
       })
       .catch((error) => {
@@ -78,7 +72,7 @@ const CreateProduct = () => {
 
         {/* Right Section with Form */}
         <div className="create-product-right">
-          <h2 className="create-product-title">Create New Product</h2>
+          <h2 className="create-product-title">Create New Service</h2>
           <Formik
             initialValues={initialValues}
             validationSchema={validationSchema}
@@ -87,7 +81,7 @@ const CreateProduct = () => {
             <Form className="create-product-form">
               {/* Name */}
               <div className="form-group">
-                <label htmlFor="name">Product Name</label>
+                <label htmlFor="name">Service Name</label>
                 <Field type="text" id="name" name="name" />
                 <ErrorMessage
                   name="name"
@@ -145,23 +139,6 @@ const CreateProduct = () => {
                 />
               </div>
 
-              {/* Category */}
-              <div className="form-group">
-                <label htmlFor="category">Category</label>
-                <Field as="select" id="category" name="category">
-                  <option value="" label="Select a category" />
-                  <option value="Mountain" label="Mountain" />
-                  <option value="Electric" label="Electric" />
-                  <option value="City" label="City" />
-                  <option value="Accessories" label="Accessories" />
-                </Field>
-                <ErrorMessage
-                  name="category"
-                  component="div"
-                  className="error-text"
-                />
-              </div>
-
               {/* Featured */}
               <div className="form-group">
                 <label>Featured</label>
@@ -184,7 +161,7 @@ const CreateProduct = () => {
 
               {/* Submit Button */}
               <button type="submit" className="submit-btn">
-                Create Product
+                Create Service
               </button>
             </Form>
           </Formik>
@@ -194,4 +171,4 @@ const CreateProduct = () => {
   );
 };
 
-export default CreateProduct;
+export default CreateService;

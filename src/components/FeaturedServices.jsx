@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from "react";
-import servicesData from "../staticData/servicesData";
+
 import { Link } from "react-router-dom";
 import axios from "axios";
 
 const FeaturedServices = () => {
-  // Filter for featured services
-  // const featuredServices = servicesData.filter((service) => service.featured);
-
   const [services, setServices] = useState([]);
 
   // Filter for featured products

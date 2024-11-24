@@ -1,0 +1,96 @@
+.service-guarantee {
+    padding: 3rem 1rem;
+    background: linear-gradient(to right, #e7f9ee, #f4fcf7); // Greenish gradient
+    text-align: center;
+    border-top: 1px solid #ddd;
+  
+    .guarantee-container {
+      max-width: 1200px;
+      margin: 0 auto;
+  
+      .guarantee-title {
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+        color: #2d6a4f; // Dark green
+        animation: fadeIn 1s ease-in-out;
+      }
+  
+      .guarantee-subtitle {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        color: #4f8a68; // Muted green
+      }
+  
+      .guarantee-content {
+        display: flex;
+        justify-content: space-around;
+        gap: 2rem;
+  
+        .guarantee-card {
+          background: #ffffff;
+          padding: 1.5rem;
+          border-radius: 12px;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+          &:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+          }
+  
+          .card-icon {
+            font-size: 2rem;
+            color: #40916c; // Vibrant green
+            margin-bottom: 1rem;
+            animation: bounce 1.5s infinite;
+          }
+  
+          h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #2d6a4f; // Dark green
+          }
+  
+          p {
+            font-size: 1rem;
+            color: #4f8a68; // Muted green
+          }
+        }
+      }
+    }
+  
+    
+  }
+  
+  // Keyframes for animations
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
